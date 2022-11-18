@@ -1,0 +1,29 @@
+<html>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/10.34.0/Dropbox-sdk.min.js"></script>
+
+
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+ 
+ 
+ </body>
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  var data = "refresh_token=sWzFn4wmhxAAAAAAAAAAAUxLMqxMjjQ-tAbuzEH7RQpOy3zkwxlB4mFS_rV5HlSa&grant_type=refresh_token&client_id=6g4fk66kr4w6bxw&client_secret=2f0dlihlqgak410";
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("POST",  "https://api.dropbox.com/oauth2/token");
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(data);
+}
+</script>
+
+</html>
